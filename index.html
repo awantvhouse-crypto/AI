@@ -514,9 +514,10 @@ SUPABASE_FUNCTION_URL,
 {
 method:"POST",
 
-headers:{
-"Content-Type":"application/json"
-},
+headers: {
+    "Content-Type": "application/json",
+    "apikey": "YOUR_SUPABASE_PUBLISHABLE_KEY"
+}
 
 body:JSON.stringify({
 message:text
