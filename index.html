@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MediMate AI</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#f4f8fb;
+    color:#17212b;
+}
+
+/* HEADER */
+
+header{
+    height:70px;
+    background:white;
+    border-bottom:1px solid #e3e8ed;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 28px;
+
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+
+    z-index:10;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:11px;
+
+    font-size:21px;
+    font-weight:bold;
+}
+
+.logoIcon{
+    width:42px;
+    height:42px;
+
+    border-radius:13px;
+
+    background:#16a085;
+    color:white;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:23px;
+}
+
+.headerRight{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.status{
+    color:#16a085;
+    font-size:14px;
+}
+
+.avatar{
+    width:40px;
+    height:40px;
+
+    border-radius:50%;
+
+    background:#e8f6f3;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    position:fixed;
+
+    top:70px;
+    left:0;
+    bottom:0;
+
+    width:220px;
+
+    background:white;
+
+    border-right:1px solid #e3e8ed;
+
+    padding:22px 12px;
+}
+
+.sidebar button{
+    width:100%;
+
+    border:0;
+    background:transparent;
+
+    padding:14px;
+
+    margin-bottom:6px;
+
+    border-radius:10px;
+
+    text-align:left;
+
+    cursor:pointer;
+
+    font-size:15px;
+}
+
+.sidebar button:hover{
+    background:#edf7f5;
+}
+
+.sidebar .active{
+    background:#e1f5f1;
+    color:#12816d;
+    font-weight:bold;
+}
+
+/* MAIN */
+
+main{
+    margin-left:220px;
+
+    padding:105px 35px 40px;
+}
+
+.hero{
+    max-width:900px;
+}
+
+.hero h1{
+    font-size:34px;
+    margin-bottom:10px;
+}
+
+.hero h1 span{
+    color:#16a085;
+}
+
+.hero p{
+    color:#667580;
+    line-height:1.6;
+    margin-bottom:25px;
+}
+
+/* DISCLAIMER */
+
+.notice{
+    background:#fff8df;
+
+    border:1px solid #f0df9c;
+
+    padding:15px 18px;
+
+    border-radius:12px;
+
+    margin-bottom:25px;
+
+    color:#705d1b;
+
+    line-height:1.5;
+}
+
+/* CHAT */
+
+.chatBox{
+    background:white;
+
+    border:1px solid #e3e8ed;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    max-width:900px;
+
+    box-shadow:0 5px 25px rgba(0,0,0,.04);
+}
+
+.chatHeader{
+    padding:18px 20px;
+
+    border-bottom:1px solid #eee;
+
+    display:flex;
+    align-items:center;
+
+    gap:12px;
+}
+
+.doctorIcon{
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    background:#e5f7f3;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:21px;
+}
+
+.chatHeader strong{
+    display:block;
+}
+
+.chatHeader small{
+    color:#16a085;
+}
+
+/* MESSAGES */
+
+.messages{
+    min-height:300px;
+
+    max-height:450px;
+
+    overflow-y:auto;
+
+    padding:22px;
+}
+
+.message{
+    max-width:75%;
+
+    padding:13px 16px;
+
+    border-radius:14px;
+
+    margin-bottom:14px;
+
+    line-height:1.5;
+}
+
+.ai{
+    background:#f0f5f7;
+}
+
+.user{
+    background:#16a085;
+    color:white;
+
+    margin-left:auto;
+}
+
+/* INPUT */
+
+.inputArea{
+    border-top:1px solid #eee;
+
+    padding:15px;
+
+    display:flex;
+
+    gap:10px;
+}
+
+.inputArea textarea{
+    flex:1;
+
+    resize:none;
+
+    height:52px;
+
+    border:1px solid #d5dde2;
+
+    border-radius:12px;
+
+    padding:14px;
+
+    outline:none;
+
+    font-family:inherit;
+}
+
+.inputArea button{
+    width:55px;
+
+    border:0;
+
+    border-radius:12px;
+
+    background:#16a085;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:20px;
+}
+
+/* QUICK BUTTONS */
+
+.quick{
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    margin-top:18px;
+}
+
+.quick button{
+    border:1px solid #dce5e9;
+
+    background:white;
+
+    padding:10px 14px;
+
+    border-radius:20px;
+
+    cursor:pointer;
+}
+
+.quick button:hover{
+    border-color:#16a085;
+    color:#16a085;
+}
+
+/* FEATURES */
+
+.features{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:18px;
+
+    max-width:900px;
+
+    margin-top:25px;
+}
+
+.feature{
+    background:white;
+
+    border:1px solid #e3e8ed;
+
+    padding:20px;
+
+    border-radius:14px;
+}
+
+.feature h3{
+    margin-bottom:8px;
+}
+
+.feature p{
+    color:#71808a;
+
+    line-height:1.5;
+
+    font-size:14px;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    header{
+        padding:0 15px;
+    }
+
+    .status{
+        display:none;
+    }
+
+    .sidebar{
+        width:65px;
+    }
+
+    .sidebar button{
+        font-size:0;
+        text-align:center;
+    }
+
+    .sidebar button::first-letter{
+        font-size:20px;
+    }
+
+    main{
+        margin-left:65px;
+
+        padding:95px 15px 30px;
+    }
+
+    .hero h1{
+        font-size:27px;
+    }
+
+    .message{
+        max-width:90%;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+
+        <div class="logoIcon">
+            🩺
+        </div>
+
+        <span>MediMate AI</span>
+
+    </div>
+
+
+    <div class="headerRight">
+
+        <div class="status">
+            ● Health Assistant
+        </div>
+
+        <div class="avatar">
+            👤
+        </div>
+
+    </div>
+
+</header>
+
+
+<aside class="sidebar">
+
+    <button class="active">
+        🏠 Home
+    </button>
+
+    <button>
+        💬 Chat
+    </button>
+
+    <button>
+        📋 My Notes
+    </button>
+
+    <button>
+        ❤️ Health
+    </button>
+
+    <button>
+        ⚙️ Settings
+    </button>
+
+</aside>
+
+
+<main>
+
+    <section class="hero">
+
+        <h1>
+            Your <span>AI Health Assistant</span>
+        </h1>
+
+        <p>
+            Ask general health questions and get easy-to-understand
+            health information.
+        </p>
+
+
+        <div class="notice">
+
+            ⚠️ <strong>Important:</strong>
+            MediMate AI provides general health information and
+            is not a real doctor. For urgent or serious concerns,
+            talk to a parent/guardian or a qualified healthcare professional.
+
+        </div>
+
+
+        <div class="chatBox">
+
+            <div class="chatHeader">
+
+                <div class="doctorIcon">
+                    🩺
+                </div>
+
+                <div>
+
+                    <strong>MediMate Assistant</strong>
+
+                    <small>Online</small>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="messages"
+                id="messages"
+            >
+
+                <div class="message ai">
+
+                    Hi! 👋 I'm MediMate.
+
+                    I can help explain general health information.
+                    What would you like to know?
+
+                </div>
+
+            </div>
+
+
+            <div class="inputArea">
+
+                <textarea
+                    id="question"
+                    placeholder="Describe what you want to know..."
+                ></textarea>
+
+                <button onclick="sendMessage()">
+                    ➤
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="quick">
+
+            <button onclick="quickQuestion('What can I do for a headache?')">
+                🤕 Headache
+            </button>
+
+            <button onclick="quickQuestion('Why might I feel tired?')">
+                😴 Tiredness
+            </button>
+
+            <button onclick="quickQuestion('How can I sleep better?')">
+                😴 Sleep
+            </button>
+
+            <button onclick="quickQuestion('How can I stay healthy?')">
+                ❤️ Healthy habits
+            </button>
+
+        </div>
+
+
+        <div class="features">
+
+            <div class="feature">
+
+                <h3>💬 Easy Answers</h3>
+
+                <p>
+                    Health topics explained in simple language.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <h3>🔒 Privacy First</h3>
+
+                <p>
+                    Don't share your name, address, passwords,
+                    or other private information.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <h3>🚨 Safety</h3>
+
+                <p>
+                    Serious or urgent symptoms should be discussed
+                    with a trusted adult and healthcare professional.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script>
+
+function addMessage(text,type){
+
+    const messages =
+        document.getElementById("messages");
+
+    const div =
+        document.createElement("div");
+
+    div.className =
+        "message " + type;
+
+    div.innerText =
+        text;
+
+    messages.appendChild(div);
+
+    messages.scrollTop =
+        messages.scrollHeight;
+}
+
+
+function sendMessage(){
+
+    const input =
+        document.getElementById("question");
+
+    const text =
+        input.value.trim();
+
+    if(!text){
+        return;
+    }
+
+    addMessage(text,"user");
+
+    input.value = "";
+
+
+    setTimeout(function(){
+
+        addMessage(
+            "Thanks for your question. This demo does not have a real AI model connected yet. A future version can connect an AI service to provide general health information. If you're worried about your health, please talk to a parent/guardian or healthcare professional.",
+            "ai"
+        );
+
+    },700);
+
+}
+
+
+function quickQuestion(text){
+
+    document.getElementById("question").value =
+        text;
+
+    sendMessage();
+
+}
+
+
+document
+.getElementById("question")
+.addEventListener("keydown",function(event){
+
+    if(event.key === "Enter" && !event.shiftKey){
+
+        event.preventDefault();
+
+        sendMessage();
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
