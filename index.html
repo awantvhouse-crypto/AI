@@ -6,282 +6,324 @@
 <title>MediMate AI</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
 body{
-font-family:Arial,sans-serif;
-background:#f4f8fb;
-color:#17212b;
+    font-family:Arial,sans-serif;
+    background:#f4f8fb;
+    color:#17212b;
 }
 
 header{
-height:70px;
-background:white;
-border-bottom:1px solid #e3e8ed;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:0 28px;
-position:fixed;
-top:0;left:0;right:0;
-z-index:100;
+    height:70px;
+    background:#fff;
+    border-bottom:1px solid #e3e8ed;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 28px;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:10;
 }
 
 .logo{
-display:flex;
-align-items:center;
-gap:11px;
-font-size:21px;
-font-weight:bold;
+    display:flex;
+    align-items:center;
+    gap:11px;
+    font-size:21px;
+    font-weight:bold;
 }
 
 .logoIcon{
-width:42px;
-height:42px;
-border-radius:13px;
-background:#16a085;
-color:white;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:22px;
-}
-
-.status{color:#16a085;font-size:14px}
-
-.avatar{
-width:40px;
-height:40px;
-border-radius:50%;
-background:#e8f6f3;
-display:flex;
-align-items:center;
-justify-content:center;
+    width:42px;
+    height:42px;
+    border-radius:13px;
+    background:#16a085;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
 }
 
 .headerRight{
-display:flex;
-align-items:center;
-gap:15px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.status{
+    color:#16a085;
+    font-size:14px;
+}
+
+.avatar{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#e8f6f3;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
 .sidebar{
-position:fixed;
-top:70px;
-left:0;
-bottom:0;
-width:220px;
-background:white;
-border-right:1px solid #e3e8ed;
-padding:22px 12px;
+    position:fixed;
+    top:70px;
+    left:0;
+    bottom:0;
+    width:220px;
+    background:#fff;
+    border-right:1px solid #e3e8ed;
+    padding:22px 12px;
 }
 
 .sidebar button{
-width:100%;
-border:0;
-background:transparent;
-padding:14px;
-margin-bottom:6px;
-border-radius:10px;
-text-align:left;
-cursor:pointer;
-font-size:15px;
+    width:100%;
+    border:0;
+    background:transparent;
+    padding:14px;
+    margin-bottom:6px;
+    border-radius:10px;
+    text-align:left;
+    cursor:pointer;
+    font-size:15px;
 }
 
-.sidebar button:hover{background:#edf7f5}
+.sidebar button:hover{
+    background:#edf7f5;
+}
 
 .sidebar .active{
-background:#e1f5f1;
-color:#12816d;
-font-weight:bold;
+    background:#e1f5f1;
+    color:#12816d;
+    font-weight:bold;
 }
 
 main{
-margin-left:220px;
-padding:105px 35px 40px;
+    margin-left:220px;
+    padding:105px 35px 40px;
 }
 
-.hero{max-width:900px}
+.hero{
+    max-width:900px;
+}
 
 .hero h1{
-font-size:34px;
-margin-bottom:10px;
+    font-size:34px;
+    margin-bottom:10px;
 }
 
-.hero h1 span{color:#16a085}
+.hero h1 span{
+    color:#16a085;
+}
 
-.hero>p{
-color:#667580;
-line-height:1.6;
-margin-bottom:25px;
+.hero > p{
+    color:#667580;
+    line-height:1.6;
+    margin-bottom:25px;
 }
 
 .notice{
-background:#fff8df;
-border:1px solid #f0df9c;
-padding:15px 18px;
-border-radius:12px;
-margin-bottom:25px;
-color:#705d1b;
-line-height:1.5;
+    background:#fff8df;
+    border:1px solid #f0df9c;
+    padding:15px 18px;
+    border-radius:12px;
+    margin-bottom:25px;
+    color:#705d1b;
+    line-height:1.5;
 }
 
 .chatBox{
-background:white;
-border:1px solid #e3e8ed;
-border-radius:18px;
-overflow:hidden;
-box-shadow:0 5px 25px rgba(0,0,0,.04);
+    background:#fff;
+    border:1px solid #e3e8ed;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 5px 25px rgba(0,0,0,.04);
 }
 
 .chatHeader{
-padding:18px 20px;
-border-bottom:1px solid #eee;
-display:flex;
-align-items:center;
-gap:12px;
+    padding:18px 20px;
+    border-bottom:1px solid #eee;
+    display:flex;
+    align-items:center;
+    gap:12px;
 }
 
 .doctorIcon{
-width:42px;
-height:42px;
-border-radius:50%;
-background:#e5f7f3;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:21px;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:#e5f7f3;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:21px;
 }
 
-.chatHeader strong{display:block}
-.chatHeader small{color:#16a085}
+.chatHeader strong{
+    display:block;
+}
+
+.chatHeader small{
+    color:#16a085;
+}
 
 .messages{
-min-height:300px;
-max-height:450px;
-overflow-y:auto;
-padding:22px;
+    min-height:300px;
+    max-height:450px;
+    overflow-y:auto;
+    padding:22px;
 }
 
 .message{
-max-width:78%;
-padding:13px 16px;
-border-radius:14px;
-margin-bottom:14px;
-line-height:1.5;
-white-space:pre-wrap;
+    max-width:78%;
+    padding:13px 16px;
+    border-radius:14px;
+    margin-bottom:14px;
+    line-height:1.5;
+    white-space:pre-wrap;
 }
 
-.ai{background:#f0f5f7}
+.ai{
+    background:#f0f5f7;
+}
 
 .user{
-background:#16a085;
-color:white;
-margin-left:auto;
+    background:#16a085;
+    color:#fff;
+    margin-left:auto;
 }
 
 .inputArea{
-border-top:1px solid #eee;
-padding:15px;
-display:flex;
-gap:10px;
+    border-top:1px solid #eee;
+    padding:15px;
+    display:flex;
+    gap:10px;
 }
 
 .inputArea textarea{
-flex:1;
-resize:none;
-height:52px;
-border:1px solid #d5dde2;
-border-radius:12px;
-padding:14px;
-outline:none;
-font-family:inherit;
-font-size:15px;
+    flex:1;
+    resize:none;
+    height:52px;
+    border:1px solid #d5dde2;
+    border-radius:12px;
+    padding:14px;
+    outline:none;
+    font-family:inherit;
+    font-size:15px;
 }
 
 .inputArea button{
-width:55px;
-border:0;
-border-radius:12px;
-background:#16a085;
-color:white;
-cursor:pointer;
-font-size:20px;
+    width:55px;
+    min-width:55px;
+    border:0;
+    border-radius:12px;
+    background:#16a085;
+    color:#fff;
+    cursor:pointer;
+    font-size:20px;
+}
+
+.inputArea button:hover{
+    background:#12816d;
 }
 
 .inputArea button:disabled{
-opacity:.6;
-cursor:not-allowed;
+    opacity:.6;
+    cursor:not-allowed;
 }
 
 .quick{
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-margin-top:18px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:18px;
 }
 
 .quick button{
-border:1px solid #dce5e9;
-background:white;
-padding:10px 14px;
-border-radius:20px;
-cursor:pointer;
+    border:1px solid #dce5e9;
+    background:#fff;
+    padding:10px 14px;
+    border-radius:20px;
+    cursor:pointer;
 }
 
 .quick button:hover{
-border-color:#16a085;
-color:#16a085;
+    border-color:#16a085;
+    color:#16a085;
 }
 
 .features{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:18px;
-margin-top:25px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:18px;
+    margin-top:25px;
 }
 
 .feature{
-background:white;
-border:1px solid #e3e8ed;
-padding:20px;
-border-radius:14px;
+    background:#fff;
+    border:1px solid #e3e8ed;
+    padding:20px;
+    border-radius:14px;
 }
 
-.feature h3{margin-bottom:8px}
+.feature h3{
+    margin-bottom:8px;
+}
 
 .feature p{
-color:#71808a;
-line-height:1.5;
-font-size:14px;
+    color:#71808a;
+    line-height:1.5;
+    font-size:14px;
 }
 
 @media(max-width:700px){
 
-header{padding:0 15px}
+    header{
+        padding:0 15px;
+    }
 
-.status{display:none}
+    .status{
+        display:none;
+    }
 
-.logo span{display:none}
+    .logo span{
+        display:none;
+    }
 
-.sidebar{width:65px}
+    .sidebar{
+        width:65px;
+    }
 
-.sidebar button{
-font-size:0;
-text-align:center;
-}
+    .sidebar button{
+        font-size:0;
+        text-align:center;
+    }
 
-.sidebar button::first-letter{font-size:20px}
+    .sidebar button::first-letter{
+        font-size:20px;
+    }
 
-main{
-margin-left:65px;
-padding:95px 15px 30px;
-}
+    main{
+        margin-left:65px;
+        padding:95px 15px 30px;
+    }
 
-.hero h1{font-size:27px}
+    .hero h1{
+        font-size:27px;
+    }
 
-.message{max-width:90%}
-
+    .message{
+        max-width:90%;
+    }
 }
 </style>
 </head>
@@ -290,311 +332,334 @@ padding:95px 15px 30px;
 
 <header>
 
-<div class="logo">
-<div class="logoIcon">🩺</div>
-<span>MediMate AI</span>
-</div>
+    <div class="logo">
+        <div class="logoIcon">🩺</div>
+        <span>MediMate AI</span>
+    </div>
 
-<div class="headerRight">
-<div class="status">● AI Assistant</div>
-<div class="avatar">👤</div>
-</div>
+    <div class="headerRight">
+        <div class="status">● AI Assistant</div>
+        <div class="avatar">👤</div>
+    </div>
 
 </header>
 
+
 <aside class="sidebar">
 
-<button class="active">🏠 Home</button>
-<button>💬 Chat</button>
-<button>📋 My Notes</button>
-<button>❤️ Health</button>
-<button>⚙️ Settings</button>
+    <button class="active">🏠 Home</button>
+    <button>💬 Chat</button>
+    <button>📋 My Notes</button>
+    <button>❤️ Health</button>
+    <button>⚙️ Settings</button>
 
 </aside>
+
 
 <main>
 
 <section class="hero">
 
-<h1>Your <span>AI Health Assistant</span></h1>
+    <h1>
+        Your <span>AI Health Assistant</span>
+    </h1>
 
-<p>
-Ask general health questions and get easy-to-understand
-health information.
-</p>
+    <p>
+        Ask general health questions and get easy-to-understand
+        health information.
+    </p>
 
-<div class="notice">
-⚠️ <strong>Important:</strong>
-MediMate AI provides general health information and
-is not a real doctor. For urgent or serious concerns,
-talk to a parent/guardian or a qualified healthcare professional.
-</div>
 
-<div class="chatBox">
+    <div class="notice">
+        ⚠️ <strong>Important:</strong>
+        MediMate AI provides general health information and
+        is not a real doctor. For urgent or serious concerns,
+        talk to a parent/guardian or a qualified healthcare professional.
+    </div>
 
-<div class="chatHeader">
 
-<div class="doctorIcon">🩺</div>
+    <div class="chatBox">
 
-<div>
-<strong>MediMate Assistant</strong>
-<small>Online</small>
-</div>
+        <div class="chatHeader">
 
-</div>
+            <div class="doctorIcon">🩺</div>
 
-<div class="messages" id="messages">
+            <div>
+                <strong>MediMate Assistant</strong>
+                <small>Online</small>
+            </div>
 
-<div class="message ai">
+        </div>
+
+
+        <div class="messages" id="messages">
+
+            <div class="message ai">
 Hi! 👋 I'm MediMate AI.
 
 I can help explain general health information
 in simple language.
 
 What would you like to know?
-</div>
+            </div>
 
-</div>
+        </div>
 
-<div class="inputArea">
 
-<textarea
-id="question"
-placeholder="Ask a health question..."
-></textarea>
+        <div class="inputArea">
 
-<button id="sendButton" onclick="sendMessage()">
-➤
-</button>
+            <textarea
+                id="question"
+                placeholder="Ask a health question..."
+            ></textarea>
 
-</div>
+            <button
+                id="sendButton"
+                onclick="sendMessage()"
+                title="Send"
+            >
+                ➤
+            </button>
 
-</div>
+        </div>
 
-<div class="quick">
+    </div>
 
-<button onclick="quickQuestion('What are some healthy sleep habits?')">
-😴 Sleep
-</button>
 
-<button onclick="quickQuestion('What are some healthy habits for staying well?')">
-❤️ Healthy habits
-</button>
+    <div class="quick">
 
-<button onclick="quickQuestion('What are some common reasons people get headaches?')">
-🤕 Headache
-</button>
+        <button onclick="quickQuestion('What are some healthy sleep habits?')">
+            😴 Sleep
+        </button>
 
-<button onclick="quickQuestion('Why might someone feel tired sometimes?')">
-😴 Tiredness
-</button>
+        <button onclick="quickQuestion('What are some healthy habits for staying well?')">
+            ❤️ Healthy habits
+        </button>
 
-</div>
+        <button onclick="quickQuestion('What are some common reasons people get headaches?')">
+            🤕 Headache
+        </button>
 
-<div class="features">
+        <button onclick="quickQuestion('Why might someone feel tired sometimes?')">
+            😴 Tiredness
+        </button>
 
-<div class="feature">
-<h3>💬 Simple Answers</h3>
-<p>
-Health information explained in easy-to-understand language.
-</p>
-</div>
+    </div>
 
-<div class="feature">
-<h3>🔒 Privacy</h3>
-<p>
-Don't share passwords, addresses, phone numbers,
-or other private information.
-</p>
-</div>
 
-<div class="feature">
-<h3>🚨 Safety First</h3>
-<p>
-For urgent or serious concerns, talk to a trusted adult
-and a healthcare professional.
-</p>
-</div>
+    <div class="features">
 
-</div>
+        <div class="feature">
+            <h3>💬 Simple Answers</h3>
+            <p>
+                Health information explained in
+                easy-to-understand language.
+            </p>
+        </div>
+
+        <div class="feature">
+            <h3>🔒 Privacy</h3>
+            <p>
+                Don't share passwords, addresses,
+                phone numbers, or other private information.
+            </p>
+        </div>
+
+        <div class="feature">
+            <h3>🚨 Safety First</h3>
+            <p>
+                For urgent or serious concerns,
+                talk to a trusted adult and a healthcare professional.
+            </p>
+        </div>
+
+    </div>
 
 </section>
 
 </main>
 
+
 <script>
 
 /*
-PASTE YOUR SUPABASE FUNCTION URL BELOW.
-
-Example:
-https://xxxxxxxx.supabase.co/functions/v1/medimate-ai
-
-DO NOT put your OpenAI API key here.
+====================================================
+SUPABASE SETTINGS
+====================================================
 */
 
 const SUPABASE_FUNCTION_URL =
 "https://kapxoqrgtaoacxwfwklh.supabase.co/functions/v1/medimate-ai";
 
 
+/*
+IMPORTANT:
+
+Yahan apni SUPABASE PUBLISHABLE KEY paste karo.
+
+OpenAI secret key yahan MAT paste karna.
+*/
+
+const SUPABASE_PUBLISHABLE_KEY =
+"YOUR_SUPABASE_PUBLISHABLE_KEY";
+
+
+/* ADD MESSAGE */
+
 function addMessage(text,type){
 
-const messages =
-document.getElementById("messages");
+    const messages =
+        document.getElementById("messages");
 
-const div =
-document.createElement("div");
+    const div =
+        document.createElement("div");
 
-div.className =
-"message " + type;
+    div.className =
+        "message " + type;
 
-div.innerText =
-text;
+    div.innerText =
+        text;
 
-messages.appendChild(div);
+    messages.appendChild(div);
 
-messages.scrollTop =
-messages.scrollHeight;
-
+    messages.scrollTop =
+        messages.scrollHeight;
 }
 
+
+/* SEND MESSAGE */
 
 async function sendMessage(){
 
-const input =
-document.getElementById("question");
+    const input =
+        document.getElementById("question");
 
-const sendButton =
-document.getElementById("sendButton");
+    const sendButton =
+        document.getElementById("sendButton");
 
-const text =
-input.value.trim();
-
-if(!text)return;
+    const text =
+        input.value.trim();
 
 
-if(
-SUPABASE_FUNCTION_URL ===
-"YOUR_SUPABASE_FUNCTION_URL"
-){
+    if(!text){
+        return;
+    }
 
-addMessage(
-"Please add your Supabase Function URL first.",
-"ai"
-);
 
-return;
+    addMessage(text,"user");
+
+    input.value = "";
+
+    sendButton.disabled = true;
+
+
+    const thinking =
+        document.createElement("div");
+
+    thinking.className =
+        "message ai";
+
+    thinking.innerText =
+        "Thinking...";
+
+    document
+        .getElementById("messages")
+        .appendChild(thinking);
+
+
+    try{
+
+        const response =
+            await fetch(
+                SUPABASE_FUNCTION_URL,
+                {
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":"application/json",
+                        "apikey":SUPABASE_PUBLISHABLE_KEY
+                    },
+
+                    body:JSON.stringify({
+                        message:text
+                    })
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        thinking.remove();
+
+
+        if(!response.ok){
+
+            throw new Error(
+                data.error ||
+                "Request failed"
+            );
+
+        }
+
+
+        addMessage(
+            data.answer ||
+            "Sorry, I couldn't generate a response.",
+            "ai"
+        );
+
+
+    }catch(error){
+
+        thinking.remove();
+
+        addMessage(
+            "Sorry, MediMate AI se connection nahi ho saka.",
+            "ai"
+        );
+
+        console.error(error);
+
+    }
+
+
+    sendButton.disabled = false;
 }
 
 
-addMessage(text,"user");
-
-input.value="";
-
-sendButton.disabled=true;
-
-
-const thinking =
-document.createElement("div");
-
-thinking.className="message ai";
-
-thinking.innerText="Thinking...";
-
-document
-.getElementById("messages")
-.appendChild(thinking);
-
-
-try{
-
-const response =
-await fetch(
-SUPABASE_FUNCTION_URL,
-{
-method:"POST",
-
-headers: {
-    "Content-Type": "application/json",
-    "apikey": "YOUR_SUPABASE_PUBLISHABLE_KEY"
-}
-
-body:JSON.stringify({
-message:text
-})
-}
-);
-
-
-const data =
-await response.json();
-
-thinking.remove();
-
-
-if(!response.ok){
-
-throw new Error(
-data.error ||
-"AI request failed"
-);
-
-}
-
-
-addMessage(
-data.answer ||
-"Sorry, I couldn't generate a response.",
-"ai"
-);
-
-
-}catch(error){
-
-thinking.remove();
-
-addMessage(
-"Sorry, MediMate AI se connection nahi ho saka. Please check your Supabase function.",
-"ai"
-);
-
-console.error(error);
-
-}
-
-
-sendButton.disabled=false;
-
-}
-
+/* QUICK QUESTION */
 
 function quickQuestion(text){
 
-document.getElementById("question").value=text;
+    document.getElementById("question").value =
+        text;
 
-sendMessage();
-
+    sendMessage();
 }
 
+
+/* ENTER KEY */
 
 document
 .getElementById("question")
 .addEventListener(
-"keydown",
-function(event){
+    "keydown",
+    function(event){
 
-if(
-event.key==="Enter" &&
-!event.shiftKey
-){
+        if(
+            event.key === "Enter" &&
+            !event.shiftKey
+        ){
 
-event.preventDefault();
+            event.preventDefault();
 
-sendMessage();
+            sendMessage();
 
-}
+        }
 
-}
+    }
 );
 
 </script>
